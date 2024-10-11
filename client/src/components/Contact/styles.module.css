@@ -1,0 +1,34 @@
+.contactItemContainer {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+}
+
+.title {
+  color: #282828;
+  font-size: 64px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.elementContainer {
+  background-color: #f1f3f4;
+  padding: 32px;
+  border-radius: 12px;
+}
+
+.titleElement {
+  color: #8b8b8b;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.infoContact {
+  color: #282828;
+  font-size: 40px;
+  font-weight: bold;
+}
+.socialsIconContainer {
+  display: flex;
+  column-gap: 16px;
+}

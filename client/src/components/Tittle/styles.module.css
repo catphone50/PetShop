@@ -1,0 +1,30 @@
+.titleContainerLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+
+  &::before {
+    content: "";
+    flex-grow: 1;
+    height: 1px;
+    background-color: #dddddd;
+  }
+}
+
+.title {
+  font-size: 64px;
+  font-weight: bold;
+  order: -1;
+  color: #282828;
+  margin-right: 32px;
+}
+
+.link {
+  text-decoration: none;
+  color: #8b8b8b;
+  border: 1px solid #dddddd;
+  padding: 8px 16px;
+  white-space: nowrap;
+  border-radius: 6px;
+}

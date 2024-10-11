@@ -1,0 +1,18 @@
+.headerContainer {
+  background-color: #dddddd;
+  width: 100%;
+  max-width: 1440px;
+  padding: 30px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.linkContainer {
+  display: flex;
+  column-gap: 32px;
+}
+
+.nav {
+  text-decoration: none;
+}

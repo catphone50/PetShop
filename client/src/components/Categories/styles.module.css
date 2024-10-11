@@ -1,0 +1,44 @@
+.categories {
+  width: 100%;
+  max-width: 1440px;
+  padding: 40px;
+}
+
+.categoriesLink {
+  margin-top: 80px;
+}
+
+.categoriesContainer {
+  margin-top: 40px;
+  display: flex;
+  gap: 32px;
+  margin-bottom: 100px;
+  justify-content: center;
+}
+
+.categoriesContainerAll {
+  margin-top: 40px;
+  display: flex;
+  gap: 32px;
+  margin-bottom: 100px;
+  flex-wrap: wrap;
+}
+
+.emptyCategory {
+  font-size: 50px;
+  text-align: center;
+  margin: 60px 0;
+}
+
+.titleCategory {
+  color: #282828;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 16px;
+}
+
+.imageCategory {
+  border-radius: 12px;
+  max-width: 316px;
+  width: 100%;
+}

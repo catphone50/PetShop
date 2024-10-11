@@ -1,0 +1,47 @@
+.priceContainer {
+  display: flex;
+  column-gap: 16px;
+  align-items: flex-end;
+  margin-top: 16px;
+  padding: 0 32px 32px 32px;
+}
+.priceProduct {
+  color: #8b8b8b;
+  font-size: 20px;
+  text-decoration: line-through;
+}
+.discontPriceProduct {
+  color: #282828;
+  font-size: 40px;
+  order: -1;
+}
+.blueBox {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  background-color: #0d50ff;
+  color: #fff;
+  border-radius: 6px;
+  font-size: 20px;
+}
+.imageProduct {
+  max-width: 320px;
+  width: 100%;
+  aspect-ratio: 1;
+}
+.productCard {
+  position: relative;
+  max-width: 316px;
+  border: 1px solid #dddddd;
+  border-radius: 12px;
+}
+
+.titleProduct {
+  color: #282828;
+  font-size: 20px;
+  padding: 0 32px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

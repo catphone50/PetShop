@@ -1,0 +1,16 @@
+.productsContainer {
+  width: 100%;
+  max-width: 1440px;
+  padding: 40px;
+}
+.productsContainerContent {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.emptyProducts {
+  font-size: 50px;
+  text-align: center;
+  margin: 60px 0;
+}

@@ -1,0 +1,97 @@
+.mainContainer {
+  max-width: 1440px;
+  width: 100%;
+}
+
+.discountContainer {
+  height: 600px;
+  background-image: url("../../assets/img/DiscountImg.jpg");
+  width: 100%;
+  padding: 40px;
+}
+
+.title {
+  font-size: 96px;
+  color: #ffffff;
+  padding: 40px 0;
+}
+
+.accentButton {
+  padding: 16px 56px;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  background-color: #0d50ff;
+}
+
+.firstOrderContainer {
+  width: 100%;
+  border-radius: 12px;
+  background: radial-gradient(
+    circle,
+    rgba(36, 81, 198, 1) 0%,
+    rgba(13, 80, 255, 1) 100%
+  );
+}
+
+.titleOrder {
+  font-size: 64px;
+  color: #ffffff;
+  text-align: center;
+  padding-top: 32px;
+}
+
+.firstOrderContentContainer {
+  display: flex;
+  align-items: center;
+  padding: 56px 32px 0 32px;
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    row-gap: 56px;
+    padding-bottom: 40px;
+  }
+}
+
+.firstOrderSectionContainer {
+  padding: 0 40px;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 520px;
+  row-gap: 16px;
+}
+
+.inputOrder {
+  outline: none;
+  background-color: transparent;
+  padding: 16px 32px;
+  font-size: 20;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  border-radius: 6px;
+}
+.inputOrder::placeholder {
+  color: #ffffff;
+  font-size: 20;
+}
+.secondaryButton {
+  border: none;
+  border-color: #ffffff;
+  color: 282828;
+  font-size: 20;
+  padding: 16px 32px;
+  margin-top: 16px;
+  border-radius: 6px;
+}
+
+.imgOrder {
+  object-fit: contain;
+  width: 100%;
+}
+
+.saleSection {
+  margin-top: 80px;
+}

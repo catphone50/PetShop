@@ -1,0 +1,10 @@
+.footerContainer {
+  padding: 0 40px;
+  max-width: 1440px;
+  padding-bottom: 80px;
+}
+
+.map {
+  width: 100%;
+  margin-top: 32px;
+}
