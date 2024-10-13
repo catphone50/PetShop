@@ -1,16 +1,17 @@
-import { nanoid } from "nanoid";
 import styles from "./styles.module.css";
 import ProductCard from "../ProductCard";
+import { NavLink } from "react-router-dom";
 
 const Product = ({ products }) => {
   return (
     <div className={styles.productsContainer}>
       {products ? (
         <div className={styles.productsContainerContent}>
-          {products.map((product) => {
-            console.log(product);
-            return <ProductCard key={nanoid(5)} product={product} />;
-          })}
+          {products.map((product) => (
+            <NavLink key={product.id} to={`/products/${product.id}`}>
+              <ProductCard product={product} />
+            </NavLink>
+          ))}
         </div>
       ) : (
         <p className={styles.emptyProducts}>No products</p>

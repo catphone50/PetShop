@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import Title from "../Tittle";
 import styles from "./styles.module.css";
 
@@ -14,14 +15,16 @@ const Categories = ({ categories, link = false }) => {
         >
           {categories.map((category) => {
             return (
-              <div key={category.id} className={styles.category}>
-                <img
-                  className={styles.imageCategory}
-                  src={`${imageUrl}${category.image}`}
-                  alt={`category ${category.title}`}
-                />
-                <h5 className={styles.titleCategory}>{category.title}</h5>
-              </div>
+              <NavLink key={category.id} to={`/categories/${category.id}`}>
+                <div className={styles.category}>
+                  <img
+                    className={styles.imageCategory}
+                    src={`${imageUrl}${category.image}`}
+                    alt={`category ${category.title}`}
+                  />
+                  <h5 className={styles.titleCategory}>{category.title}</h5>
+                </div>
+              </NavLink>
             );
           })}
         </div>

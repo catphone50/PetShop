@@ -5,7 +5,9 @@ import styles from "./styles.module.css";
 import Main from "./pages/MainPage";
 import CategoriesPage from "./pages/CategoriesPage";
 import SalePage from "./pages/SalePage";
-import AllProductsPage from "./pages/AllProdactsPage";
+import AllProductsPage from "./pages/AllProductsPage";
+import CategoryPage from "./pages/CategoryPage";
+import ProductPage from "./pages/ProductPage";
 
 function App() {
   return (
@@ -14,8 +16,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/categories" element={<CategoriesPage />} />
+        <Route path="/categories/:id" element={<CategoryPage />} />
         <Route path="/sale" element={<SalePage />} />
         <Route path="/allProducts" element={<AllProductsPage />} />
+        <Route path="/products/:id" element={<ProductPage />} />
         {/*<Route path="/cart" element={<Contacts />} /> */}
       </Routes>
       <Footer />

@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./styles.module.css";
 import { nanoid } from "nanoid";
 
@@ -6,12 +7,12 @@ const Navigate = ({ way }) => {
     <div className={styles.navigateContainer}>
       {way.map((btn) => {
         return (
-          <>
-            <a key={nanoid(5)} href={`${btn.link}`} className={styles.btnNav}>
+          <React.Fragment key={nanoid(5)}>
+            <a href={`${btn.link}`} className={styles.btnNav}>
               {btn.title}
             </a>
             <div className={styles.line} />
-          </>
+          </React.Fragment>
         );
       })}
     </div>
