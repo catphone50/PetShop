@@ -1,6 +1,6 @@
 import styles from "./styles.module.css";
 
-const Title = ({ title, className, link = false }) => {
+const Title = ({ title, className, link = false, linkName = title }) => {
   return (
     <div
       className={`${
@@ -10,7 +10,7 @@ const Title = ({ title, className, link = false }) => {
       <h2 className={styles.title}>{title}</h2>
       {link && (
         <a href={link} className={styles.link}>
-          {title}
+          {linkName}
         </a>
       )}
     </div>

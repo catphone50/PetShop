@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import Navigate from "../../components/Navigate";
-import Product from "../../components/Product";
+import ProductsList from "../../components/ProductsList";
 import styles from "./styles.module.css";
 import { useEffect } from "react";
 import { fetchProducts } from "../../redux/slices/productsSlice";
@@ -22,7 +22,7 @@ const AllProductsPage = () => {
           { title: "All sale", link: "/sale" },
         ]}
       />
-      <Product products={products} />
+      <ProductsList products={products} />
     </>
   );
 };

@@ -1,0 +1,51 @@
+.btn {
+  border: 1px solid #dddddd;
+  color: #8b8b8b;
+  padding: 18px;
+  background-color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  color: #8b8b8b65;
+}
+
+.decrement {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+.increment {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  margin-right: 32px;
+}
+.countInput {
+  border: 1px solid #dddddd;
+  padding: 18px 5px;
+  background-color: #fff;
+  font-size: 24px;
+  outline: none;
+  border-left: none;
+  border-right: none;
+  text-align: center;
+}
+
+.countInput::-webkit-inner-spin-button,
+.countInput::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.submitBtn {
+  padding: 16px 56px;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  background-color: #0d50ff;
+  width: 100%;
+  cursor: pointer;
+}
+.form {
+  display: flex;
+}

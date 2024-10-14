@@ -1,8 +1,7 @@
+import { GENERAL_URL } from "../../config/apiConstants";
 import styles from "./styles.module.css";
 
 const productCard = ({ product }) => {
-  const imageUrl = `http://localhost:3333`;
-
   const countDiscount = (price, discountPrice) => {
     return Math.round(((price - discountPrice) / price) * 100);
   };
@@ -17,7 +16,7 @@ const productCard = ({ product }) => {
 
       <img
         className={styles.imageProduct}
-        src={`${imageUrl}${product.image}`}
+        src={`${GENERAL_URL}${product.image}`}
         alt={`product ${product.title}`}
       />
       <h5 className={styles.titleProduct}>{product.title}</h5>

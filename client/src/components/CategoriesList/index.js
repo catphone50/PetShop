@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom";
-import Title from "../Tittle";
+import Title from "../Title";
 import styles from "./styles.module.css";
+import { GENERAL_URL } from "../../config/apiConstants";
 
-const Categories = ({ categories, link = false }) => {
-  const imageUrl = `http://localhost:3333`;
+const CategoriesList = ({ categories, link = false }) => {
   return (
     <section className={link ? styles.categoriesLink : styles.categories}>
       <Title title="Categories" link={link} />
@@ -19,7 +19,7 @@ const Categories = ({ categories, link = false }) => {
                 <div className={styles.category}>
                   <img
                     className={styles.imageCategory}
-                    src={`${imageUrl}${category.image}`}
+                    src={`${GENERAL_URL}${category.image}`}
                     alt={`category ${category.title}`}
                   />
                   <h5 className={styles.titleCategory}>{category.title}</h5>
@@ -34,4 +34,4 @@ const Categories = ({ categories, link = false }) => {
     </section>
   );
 };
-export default Categories;
+export default CategoriesList;

@@ -2,7 +2,7 @@ import styles from "./styles.module.css";
 import ProductCard from "../ProductCard";
 import { NavLink } from "react-router-dom";
 
-const Product = ({ products }) => {
+const ProductsList = ({ products }) => {
   return (
     <div className={styles.productsContainer}>
       {products ? (
@@ -20,4 +20,4 @@ const Product = ({ products }) => {
   );
 };
 
-export default Product;
+export default ProductsList;

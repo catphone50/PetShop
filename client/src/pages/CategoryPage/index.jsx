@@ -1,11 +1,11 @@
 import { useEffect } from "react";
-import Title from "../../components/Tittle";
+import Title from "../../components/Title";
 import styles from "./styles.module.css";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCategory } from "../../redux/slices/categorySlice";
 import Navigate from "../../components/Navigate";
-import Product from "../../components/Product";
+import ProductsList from "../../components/ProductsList";
 
 const CategoryPage = () => {
   const { id } = useParams();
@@ -27,7 +27,7 @@ const CategoryPage = () => {
       />
 
       <Title className={styles.title} title={category.category.title} />
-      <Product products={category.data} />
+      <ProductsList products={category.data} />
     </div>
   );
 };

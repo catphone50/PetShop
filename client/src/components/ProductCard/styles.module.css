@@ -9,6 +9,7 @@
   color: #8b8b8b;
   font-size: 20px;
   text-decoration: line-through;
+  width: 320px;
 }
 .discontPriceProduct {
   color: #282828;
@@ -27,13 +28,16 @@
 .imageProduct {
   max-width: 320px;
   width: 100%;
-  aspect-ratio: 1;
+  height: auto;
+  object-fit: contain;
+  height: 300px;
 }
 .productCard {
   position: relative;
   max-width: 316px;
   border: 1px solid #dddddd;
   border-radius: 12px;
+  min-width: 316px;
 }
 
 .titleProduct {

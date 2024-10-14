@@ -49,7 +49,7 @@ const Header = () => {
         </NavLink>
       </nav>
 
-      <NavLink to="/" className={styles.basket}>
+      <NavLink to="/cart" className={styles.basket}>
         <img src={basket} alt="basket" />
       </NavLink>
     </header>

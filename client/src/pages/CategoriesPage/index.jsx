@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import Categories from "../../components/Categories";
+import CategoriesList from "../../components/CategoriesList";
 import { fetchCategories } from "../../redux/slices/categoriesSlice";
 import { useEffect } from "react";
 import Navigate from "../../components/Navigate";
@@ -21,7 +21,7 @@ const CategoriesPage = () => {
           { title: "Categories", link: "/categories" },
         ]}
       />
-      <Categories categories={categories} />
+      <CategoriesList categories={categories} />
     </>
   );
 };
