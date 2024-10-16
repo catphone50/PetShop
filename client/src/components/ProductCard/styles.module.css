@@ -32,6 +32,36 @@
   object-fit: contain;
   height: 300px;
 }
+.addItemToCart {
+  padding: 16px 56px;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  background-color: #0d50ff;
+  text-decoration: none;
+  position: absolute;
+  top: 210px;
+  left: 16px;
+  right: 16px;
+  transition: background-color 0.3s, color 0.3s;
+  z-index: 5;
+  &:hover {
+    background-color: #282828;
+    color: #fff;
+  }
+  &:active {
+    background-color: #fff;
+    color: #282828;
+    border: 1px solid #282828;
+  }
+}
+
+.added {
+  background-color: #fff;
+  color: #282828;
+  border: 1px solid #282828;
+}
+
 .productCard {
   position: relative;
   max-width: 316px;

@@ -4,6 +4,8 @@ import ProductsList from "../../components/ProductsList";
 import styles from "./styles.module.css";
 import { useEffect } from "react";
 import { fetchProducts } from "../../redux/slices/productsSlice";
+import Title from "../../components/Title";
+import FilterProduct from "../../components/FilterProduct";
 
 const AllProductsPage = () => {
   const dispatch = useDispatch();
@@ -13,16 +15,23 @@ const AllProductsPage = () => {
   }, [dispatch]);
 
   const products = useSelector((state) => state.products.data);
+  const filteredProducts = useSelector(
+    (state) => state.filter.filteredProducts
+  );
 
   return (
     <>
       <Navigate
         way={[
           { title: "Main Page", link: "/" },
-          { title: "All sale", link: "/sale" },
+          { title: "All products", link: "/allProducts" },
         ]}
       />
-      <ProductsList products={products} />
+      <Title className={styles.pageTitle} title="All products" />
+      <FilterProduct products={products} />
+      <ProductsList
+        products={filteredProducts.length > 0 ? filteredProducts : products}
+      />
     </>
   );
 };

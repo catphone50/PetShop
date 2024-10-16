@@ -1,0 +1,39 @@
+.productContainer {
+  display: flex;
+  align-items: center;
+  border: 1px solid #dddddd;
+  border-radius: 12px;
+  padding-right: 32px;
+}
+
+.productInfoContainer {
+  width: 100%;
+}
+
+.img {
+  width: 200px;
+  height: 180px;
+  margin-right: 32px;
+  object-fit: contain;
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  h5 {
+    font-size: 20px;
+  }
+}
+
+.priceContainer {
+  display: flex;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.delete {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}

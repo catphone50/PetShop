@@ -30,6 +30,35 @@
   color: #ffffff;
   font-size: 20;
 }
+
+.submitBtn {
+  padding: 16px 56px;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  background-color: #0d50ff;
+  width: 100%;
+  cursor: pointer;
+  &:hover {
+    background-color: #282828;
+    color: #fff;
+  }
+  &:active {
+    background-color: #fff;
+    color: #282828;
+    border: 1px solid #282828;
+  }
+  &:disabled {
+    background-color: red;
+  }
+}
+
+.successful {
+  background-color: #fff;
+  color: #282828;
+  border: 1px solid #282828;
+}
+
 .secondaryButton {
   border: none;
   border-color: #ffffff;

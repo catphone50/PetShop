@@ -16,3 +16,18 @@
 .nav {
   text-decoration: none;
 }
+
+.basket {
+  position: relative;
+}
+.basketBadge {
+  width: 26px;
+  height: 26px;
+  position: absolute;
+  top: 7px;
+  left: 0;
+  background-color: #0d50ff;
+  color: #ffffff;
+  border-radius: 50%;
+  text-align: center;
+}

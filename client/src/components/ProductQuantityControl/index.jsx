@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 import { useDispatch } from "react-redux";
-import { addItem } from "../../redux/slices/cartSlice";
+import { addItem, updateItemQuantity } from "../../redux/slices/cartSlice";
 
 const ProductQuantityControl = ({
   product,
@@ -26,6 +26,12 @@ const ProductQuantityControl = ({
     e.preventDefault();
     setCount((prevCount) => prevCount + 1);
   };
+
+  useEffect(() => {
+    if (!isSubmitBtn) {
+      dispatch(updateItemQuantity({ ...product, quantity: count }));
+    }
+  }, [count, dispatch, product, isSubmitBtn]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

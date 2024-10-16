@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import styles from "./styles.module.css";
 
-const Form = ({ onSubmit }) => {
+const Form = ({ onSubmit, className, successful }) => {
   const {
     register,
     handleSubmit,
@@ -9,7 +9,10 @@ const Form = ({ onSubmit }) => {
   } = useForm({ mode: "onChange" });
 
   return (
-    <form className={styles.formContainer} onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className={`${styles.formContainer} ${className}`}
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <div className={styles.inputContainer}>
         <input
           className={styles.inputOrder}
@@ -77,8 +80,12 @@ const Form = ({ onSubmit }) => {
           <span className={styles.error}>Email is not correct</span>
         )}
       </div>
-      <button className={styles.secondaryButton} type="submit">
-        Check out
+      <button
+        disabled={errors.number || errors.Email || errors.firstName}
+        className={`${styles.submitBtn} ${successful && styles.successful}`}
+        type="submit"
+      >
+        {successful ? successful : "Order"}
       </button>
     </form>
   );

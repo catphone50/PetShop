@@ -1,6 +1,5 @@
 import styles from "./styles.module.css";
 import ProductCard from "../ProductCard";
-import { NavLink } from "react-router-dom";
 
 const ProductsList = ({ products }) => {
   return (
@@ -8,9 +7,7 @@ const ProductsList = ({ products }) => {
       {products ? (
         <div className={styles.productsContainerContent}>
           {products.map((product) => (
-            <NavLink key={product.id} to={`/products/${product.id}`}>
-              <ProductCard product={product} />
-            </NavLink>
+            <ProductCard key={product.id} product={product} />
           ))}
         </div>
       ) : (

@@ -3,24 +3,20 @@ import Title from "../../components/Title";
 import Cart from "../../components/Cart";
 import Form from "../../components/Form";
 import { GENERAL_URL } from "../../config/apiConstants";
-import ProductQuantityControl from "../../components/ProductQuantityControl";
-import PriceDisplay from "../../components/PriceDisplay";
-import deleteItem from "../../assets/icons/x.svg";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { useState } from "react";
+import Modal from "../../components/Modal";
 
 const CartPage = () => {
   const items = useSelector((state) => {
     return state.cart;
   });
 
-  const countTotalPrice = () => {
-    return items
-      .reduce((total, item) => {
-        return total + (item.discont_price || item.price) * item.quantity;
-      }, 0)
-      .toFixed(2);
-  };
+  const [successful, setSuccessful] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const closeModal = () => setIsModalOpen(false);
 
   const onSubmit = async (data) => {
     const response = await axios.post(`${GENERAL_URL}/order/send`, data, {
@@ -28,6 +24,19 @@ const CartPage = () => {
         "Content-Type": "application/json",
       },
     });
+
+    if (response.request.status === 200) {
+      setSuccessful("The Order is Placed");
+      setIsModalOpen(true);
+    }
+  };
+
+  const countTotalPrice = (state) => {
+    return state
+      .reduce((total, item) => {
+        return total + (item.discont_price || item.price) * item.quantity;
+      }, 0)
+      .toFixed(2);
   };
 
   return (
@@ -42,31 +51,7 @@ const CartPage = () => {
           <div className={styles.productsWrapper}>
             <div className={styles.productsContainer}>
               {items.map((item) => (
-                <div key={item.id} className={styles.productContainer}>
-                  <img
-                    className={styles.img}
-                    src={`${GENERAL_URL}${item.image}`}
-                    alt={item.title}
-                  />
-                  <div className={styles.productInfoContainer}>
-                    <div className={styles.titleContainer}>
-                      <h5>{item.title}</h5>
-                      <button className={styles.delete}>
-                        <img src={deleteItem} alt="del" />
-                      </button>
-                    </div>
-                    <div className={styles.priceContainer}>
-                      <ProductQuantityControl quantity={item.quantity} />
-                      <PriceDisplay
-                        price={item.price}
-                        discountPrice={item.discont_price}
-                        fontSizeDiscount="40px"
-                        fontSizePrice="20px"
-                        className={styles.price}
-                      />
-                    </div>
-                  </div>
-                </div>
+                <Cart key={item.id} product={item} />
               ))}
             </div>
             <div className={styles.orderDetailsContainer}>
@@ -75,9 +60,15 @@ const CartPage = () => {
                 <p
                   className={styles.totalItems}
                 >{`${items.length} items Total`}</p>
-                <p className={styles.totalPrice}>{`$${countTotalPrice()}`}</p>
+                <p className={styles.totalPrice}>{`$${countTotalPrice(
+                  items
+                )}`}</p>
               </div>
-              <Form onSubmit={onSubmit} />
+              <Form
+                className={styles.orderForm}
+                onSubmit={onSubmit}
+                successful={successful}
+              />
             </div>
           </div>
         ) : (
@@ -89,6 +80,7 @@ const CartPage = () => {
           </div>
         )}
       </div>
+      <Modal isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );
 };

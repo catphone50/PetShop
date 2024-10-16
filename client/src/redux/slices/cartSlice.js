@@ -25,6 +25,7 @@ const saveToLocalStorage = (state) => {
     console.error("Failed to save state to localStorage:", error);
   }
 };
+
 const initialState = loadFromLocalStorage();
 
 const cartSlice = createSlice({
@@ -43,7 +44,9 @@ const cartSlice = createSlice({
       saveToLocalStorage(state);
     },
     removeItem(state, action) {
+      console.log(action.payload);
       const newState = state.filter((item) => item.id !== action.payload.id);
+
       saveToLocalStorage(newState);
       return newState;
     },

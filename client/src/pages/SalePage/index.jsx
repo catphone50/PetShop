@@ -5,6 +5,7 @@ import Navigate from "../../components/Navigate";
 import { fetchProducts } from "../../redux/slices/productsSlice";
 import ProductsList from "../../components/ProductsList";
 import styles from "./styles.module.css";
+import FilterProduct from "../../components/FilterProduct";
 
 const SalePage = () => {
   const dispatch = useDispatch();
@@ -15,8 +16,12 @@ const SalePage = () => {
 
   const products = useSelector((state) => state.products.data);
 
-  const filteredProducts = products.filter(
+  const filteredDiscountProducts = products.filter(
     (product) => product.discont_price !== null
+  );
+
+  const filteredProducts = useSelector(
+    (state) => state.filter.filteredProducts
   );
 
   return (
@@ -28,7 +33,14 @@ const SalePage = () => {
         ]}
       />
       <Title className={styles.title} title="Discounted items" />
-      <ProductsList products={filteredProducts} />
+      <FilterProduct isSalePage products={filteredDiscountProducts} />
+      <ProductsList
+        products={
+          filteredProducts.length > 0
+            ? filteredProducts
+            : filteredDiscountProducts
+        }
+      />
     </>
   );
 };

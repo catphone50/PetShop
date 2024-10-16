@@ -2,8 +2,13 @@ import styles from "./styles.module.css";
 import logo from "../../assets/icons/logo.svg";
 import { NavLink } from "react-router-dom";
 import basket from "../../assets/icons/basket.svg";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const items = useSelector((state) => {
+    return state.cart;
+  });
+
   return (
     <header className={styles.headerContainer}>
       <NavLink to="/" className={styles.logo}>
@@ -51,6 +56,7 @@ const Header = () => {
 
       <NavLink to="/cart" className={styles.basket}>
         <img src={basket} alt="basket" />
+        <div className={styles.basketBadge}>{items.length}</div>
       </NavLink>
     </header>
   );

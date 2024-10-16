@@ -23,6 +23,15 @@
   border-radius: 6px;
   background-color: #0d50ff;
   text-decoration: none;
+  &:hover {
+    background-color: #282828;
+    color: #fff;
+  }
+  &:active {
+    background-color: #fff;
+    color: #282828;
+    border: 1px solid #282828;
+  }
 }
 
 .saleSection {
