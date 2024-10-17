@@ -7,6 +7,7 @@ import { fetchCategory } from "../../redux/slices/categorySlice";
 import Navigate from "../../components/Navigate";
 import ProductsList from "../../components/ProductsList";
 import FilterProduct from "../../components/FilterProduct";
+import { CircularProgress } from "@mui/material";
 
 const CategoryPage = () => {
   const { id } = useParams();
@@ -15,6 +16,7 @@ const CategoryPage = () => {
   const filteredProducts = useSelector(
     (state) => state.filter.filteredProducts
   );
+  const isLoading = useSelector((state) => state.category.isLoading);
 
   useEffect(() => {
     dispatch(fetchCategory(id));
@@ -31,12 +33,18 @@ const CategoryPage = () => {
       />
 
       <Title className={styles.title} title={category.category.title} />
-      <FilterProduct products={category.data} />
-      <ProductsList
-        products={
-          filteredProducts.length > 0 ? filteredProducts : category.data
-        }
-      />
+      {isLoading ? (
+        <CircularProgress size="3rem" />
+      ) : (
+        <>
+          <FilterProduct products={category.data} />
+          <ProductsList
+            products={
+              filteredProducts.length > 0 ? filteredProducts : category.data
+            }
+          />
+        </>
+      )}
     </div>
   );
 };

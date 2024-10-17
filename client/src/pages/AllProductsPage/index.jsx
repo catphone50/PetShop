@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { fetchProducts } from "../../redux/slices/productsSlice";
 import Title from "../../components/Title";
 import FilterProduct from "../../components/FilterProduct";
+import { CircularProgress, LinearProgress } from "@mui/material";
 
 const AllProductsPage = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ const AllProductsPage = () => {
   const filteredProducts = useSelector(
     (state) => state.filter.filteredProducts
   );
+  const isLoading = useSelector((state) => state.products.isLoading);
 
   return (
     <>
@@ -28,10 +30,16 @@ const AllProductsPage = () => {
         ]}
       />
       <Title className={styles.pageTitle} title="All products" />
-      <FilterProduct products={products} />
-      <ProductsList
-        products={filteredProducts.length > 0 ? filteredProducts : products}
-      />
+      {isLoading ? (
+        <CircularProgress size="3rem" />
+      ) : (
+        <>
+          <FilterProduct products={products} />
+          <ProductsList
+            products={filteredProducts.length > 0 ? filteredProducts : products}
+          />
+        </>
+      )}
     </>
   );
 };

@@ -7,6 +7,7 @@ import { fetchProducts } from "../../redux/slices/productsSlice";
 import Title from "../../components/Title";
 import ProductsList from "../../components/ProductsList";
 import FirstOrderDiscount from "../../components/FirstOrderProduct";
+import { LinearProgress } from "@mui/material";
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,14 @@ const Main = () => {
 
   const categories = useSelector((state) => {
     return state.categories.data;
+  });
+
+  const isLoadingCategories = useSelector((state) => {
+    return state.categories.isLoading;
+  });
+
+  const isLoadingProducts = useSelector((state) => {
+    return state.products.isLoading;
   });
 
   const products = useSelector((state) => state.products.data);
@@ -36,15 +45,23 @@ const Main = () => {
       </section>
 
       <section className={styles.categoriesContainer}>
-        <CategoriesList
-          categories={categories.slice(0, 4)}
-          link="/categories"
-        />
+        {isLoadingCategories ? (
+          <LinearProgress />
+        ) : (
+          <CategoriesList
+            categories={categories.slice(0, 4)}
+            link="/categories"
+          />
+        )}
       </section>
       <FirstOrderDiscount />
       <section className={styles.saleSection}>
         <Title title="Sale" link="/sale" />
-        <ProductsList products={filteredProducts.slice(0, 4)} />
+        {isLoadingProducts ? (
+          <LinearProgress />
+        ) : (
+          <ProductsList products={filteredProducts.slice(0, 4)} />
+        )}
       </section>
     </div>
   );
