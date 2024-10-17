@@ -4,9 +4,10 @@ import Cart from "../../components/Cart";
 import Form from "../../components/Form";
 import { GENERAL_URL } from "../../config/apiConstants";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import Modal from "../../components/Modal";
+import { clearCart } from "../../redux/slices/cartSlice";
 
 const CartPage = () => {
   const items = useSelector((state) => {
@@ -15,8 +16,12 @@ const CartPage = () => {
 
   const [successful, setSuccessful] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const dispatch = useDispatch();
 
-  const closeModal = () => setIsModalOpen(false);
+  const closeModal = () => {
+    setIsModalOpen(false);
+    dispatch(clearCart());
+  };
 
   const onSubmit = async (data) => {
     const response = await axios.post(`${GENERAL_URL}/order/send`, data, {
@@ -68,6 +73,7 @@ const CartPage = () => {
                 className={styles.orderForm}
                 onSubmit={onSubmit}
                 successful={successful}
+                textButton="Order"
               />
             </div>
           </div>

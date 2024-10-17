@@ -56,7 +56,9 @@ const Header = () => {
 
       <NavLink to="/cart" className={styles.basket}>
         <img src={basket} alt="basket" />
-        <div className={styles.basketBadge}>{items.length}</div>
+        {items.length > 0 && (
+          <div className={styles.basketBadge}>{items.length}</div>
+        )}
       </NavLink>
     </header>
   );

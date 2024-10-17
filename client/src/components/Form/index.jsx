@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import styles from "./styles.module.css";
 
-const Form = ({ onSubmit, className, successful }) => {
+const Form = ({ onSubmit, className, successful, textButton }) => {
   const {
     register,
     handleSubmit,
@@ -85,7 +85,7 @@ const Form = ({ onSubmit, className, successful }) => {
         className={`${styles.submitBtn} ${successful && styles.successful}`}
         type="submit"
       >
-        {successful ? successful : "Order"}
+        {successful ? successful : textButton}
       </button>
     </form>
   );
